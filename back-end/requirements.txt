@@ -1,20 +1,20 @@
-streamlit
-langchain
-langchain-community>=0.0.21
-langchain-core
-langchain-groq
-langchain-chroma
-chromadb
-langchain-text-splitters
-python-dotenv
-pypdf
-sentence-transformers
-langchain-huggingface
+# Core dependencies
 fastapi
 uvicorn
 python-multipart
-redis
-jose
-boto3
+pydantic
+
+# Language models and embeddings
+langchain-core
+langchain-community
+langchain-groq
+sentence-transformers
+
+# Vector store
 pinecone-client==2.2.4
+
+# PDF processing
 PyPDF2>=3.0.0
+
+# Environment variables
+python-dotenv
