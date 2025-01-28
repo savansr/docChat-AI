@@ -24,6 +24,8 @@ from PyPDF2 import PdfReader  # Add this import
 from langchain_community.document_loaders.base import BaseBlobParser
 from langchain_core.documents import Document
 from langchain_community.vectorstores import Pinecone as LangchainPinecone  # Rename to avoid confusion
+from routes.chat import router as chat_router
+from routes.upload import router as upload_router
 load_dotenv()
 
 # Initialize Pinecone
@@ -48,12 +50,14 @@ if not pc.list_indexes().names():
         time.sleep(1)
 
 app = FastAPI()
+app.include_router(chat_router)
+app.include_router(upload_router)
 
 # Configure CORS
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
-        "https://your-frontend-domain.vercel.app",  # Production frontend URL
+        "https://https://doc-chat-ai-one.vercel.app",  # Production frontend URL
         "http://localhost:5173"  # Local development
     ],
     allow_credentials=True,
