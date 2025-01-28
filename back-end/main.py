@@ -53,8 +53,8 @@ app = FastAPI()
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
-        "https://your-frontend-domain.vercel.app",  # Production frontend URL
-        "http://localhost:5173"  # Local development
+        "https://https://doc-chat-ai-one.vercel.app/",  # Production frontend URL
+       
     ],
     allow_credentials=True,
     allow_methods=["*"],
@@ -89,7 +89,7 @@ class BytesIOPDFLoader:
         
         for page_num, page in enumerate(pdf_reader.pages):
             text = page.extract_text()
-            if text.strip():  # Only create document if there's text content
+            if text.strip():  
                 doc = Document(
                     page_content=text,
                     metadata={
