@@ -1,20 +1,16 @@
-# Core dependencies
+streamlit
+langchain
+langchain-community
+langchain-core
+langchain-groq
+langchain-text-splitters
+python-dotenv
+pypdf
+sentence-transformers
+langchain-huggingface
 fastapi
 uvicorn
 python-multipart
-pydantic
-
-# Language models and embeddings
-langchain-core
-langchain-community
-langchain-groq
-sentence-transformers
-
-# Vector store
-pinecone-client==2.2.4
-
-# PDF processing
+pinecone-client
 PyPDF2>=3.0.0
-
-# Environment variables
-python-dotenv
+langchain-pinecone

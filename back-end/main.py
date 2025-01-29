@@ -13,7 +13,7 @@ from langchain_groq import ChatGroq
 from langchain_core.runnables.history import RunnableWithMessageHistory
 from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_text_splitters import RecursiveCharacterTextSplitter
-from langchain_community.document_loaders import PyPDFLoader
+from langchain_community.document_loaders import PyPDFLoaderI
 import shutil
 from uuid import uuid4
 from io import BytesIO 
@@ -24,8 +24,6 @@ from PyPDF2 import PdfReader  # Add this import
 from langchain_community.document_loaders.base import BaseBlobParser
 from langchain_core.documents import Document
 from langchain_community.vectorstores import Pinecone as LangchainPinecone  # Rename to avoid confusion
-from routes.chat import router as chat_router
-from routes.upload import router as upload_router
 load_dotenv()
 
 # Initialize Pinecone
@@ -50,8 +48,6 @@ if not pc.list_indexes().names():
         time.sleep(1)
 
 app = FastAPI()
-app.include_router(chat_router)
-app.include_router(upload_router)
 
 # Configure CORS
 app.add_middleware(
